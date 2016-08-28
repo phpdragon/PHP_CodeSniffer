@@ -1,6 +1,6 @@
 Deploy
 ------
-PHP_CodeSniffer HG æœåŠ¡ç«¯éƒ¨ç½²ç¯‡(http://www.cnblogs.com/phpdragon/p/5815526.html)
+PHP_CodeSniffer HG ·şÎñ¶Ë²¿ÊğÆª(http://www.cnblogs.com/phpdragon/p/5815526.html)
 
 
 About
