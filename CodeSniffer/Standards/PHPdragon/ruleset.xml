@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<ruleset name="PHPdragon">
+    <description>The PHPdragon coding standard.</description>
+    
+    <!-- 1.file -->
+    <!-- PHP代码文件必须以UTF-8无BOM为编码格式. -->
+    <rule ref="PHPdragon.Files.ByteOrderMark"/>
+    <!-- PHP文件开头结尾定义不允许使用短标记[<? ?>] -->
+    <rule ref="PHPdragon.PHP.DisallowShortOpenTag.EchoFound">
+        <severity>0</severity>
+    </rule>
+    <!-- 纯PHP文件不允许使用[?>]关闭标签结尾 -->
+    <rule ref="PHPdragon.Files.ClosingTag"/>
+    <!-- 确保纯PHP文件的结尾是一个换行符 -->
+    <rule ref="PHPdragon.Files.EndFileNewline"/>
+    <!-- 保证整个文件是PHP，没有空格或内联HTML的任何地方 -->
+    <rule ref="PHPdragon.Files.InlineHTML"/>
+    <!-- 检查行字符结束是否正确。 -->
+    <rule ref="PHPdragon.Files.LineEndings"/>
+    <!-- 检查所有的文件名是小写。 -->
+    <rule ref="PHPdragon.Files.LowercasedFilename"/>
+    <!-- 检查每个文件只有一个类声明。 -->
+    <rule ref="PHPdragon.Files.OneClassPerFile"/>
+    <!-- 检查每个文件只有一个接口声明 -->
+    <rule ref="PHPdragon.Files.OneInterfacePerFile"/>
+    <!-- 检查每个文件只有一个Trait语法糖 -->
+    <rule ref="PHPdragon.Files.OneTraitPerFile"/>
+    
+    <!-- 2.line -->
+    <!-- 单行代码不能超过多少个字符长度 -->
+    <rule ref="PHPdragon.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="0"/>
+        </properties>
+    </rule>
+    <!-- 不允许使用tab键缩进 -->
+    <rule ref="PHPdragon.WhiteSpace.DisallowTabIndent"/>
+    <!-- 检查控制结构的结构正确，其内容是缩进的正确。 -->
+    <rule ref="PHPdragon.WhiteSpace.ScopeIndent"/>
+    <!-- 确保每一条语句都是以自己为行的。 -->
+    <rule ref="PHPdragon.Formatting.DisallowMultipleStatements"/>
+
+    
+    <!-- 3.命名规范 -->
+    <!-- 3.1 命名 -->
+    <!-- 确保PHP认为语法是干净的。 -->
+    <rule ref="PHPdragon.PHP.Syntax"/>
+    <!-- PHP关键字必须小写 -->
+    <rule ref="PHPdragon.PHP.LowerCaseKeyword"/>
+    <!-- 全局函数名必须小写加下划线 -->
+    <rule ref="PHPdragon.PHP.LowercasePHPFunctions"/>
+    <!-- 确保数组符合数组编码标准 -->
+    <rule ref="PHPdragon.Arrays.ArrayDeclaration"/>
+    <!-- 确保数组周围没有空间方括号 -->
+    <rule ref="PHPdragon.Arrays.ArrayBracketSpacing"/>
+    
+    <!-- 类名必须首字母大写骆驼峰 -->
+    <rule ref="PHPdragon.NamingConventions.ValidClassName"/>
+    <!-- 支持使用..construct() -->
+    <rule ref="PHPdragon.NamingConventions.ConstructorName"/>
+    <!-- 方法名必须首字母小写骆驼峰 -->
+    <rule ref="PHPdragon.NamingConventions.CamelCapsMethodName"/>
+    <!-- 常量名称定义必须大写下划线风格 -->
+    <rule ref="PHPdragon.NamingConventions.UpperCaseConstantName"/>
+    <!-- 类成员变量名称(方法体局部变量)小写加下划线 -->
+    <rule ref="PHPdragon.NamingConventions.ValidVariableName"/>
+    <!--<rule ref="Zend.NamingConventions.ValidVariableName"/>-->
+    <!-- 类成员变量名称(方法体局部变量)首字母小写骆驼峰 -->
+    <!--<rule ref="PHPdragon.NamingConventions.CamelCapsVariableName"/>-->
+   
+    <!-- 3.2 Constant -->
+    <!-- PHP常量值的真、假、空必须小写。 -->
+    <rule ref="PHPdragon.PHP.LowerCaseConstant"/>
+    
+    
+    <!-- 3.3 Method Arguments -->
+    <!-- 方法参数默认值必须在参数列表的最后-->
+    <rule ref="PHPdragon.NamingConventions.ValidMethodDefaultValue"/>
+    <!-- 方法参数名称首字母小写骆驼峰-->
+    <rule ref="PHPdragon.NamingConventions.ValidMethodArgumentsName">
+        <properties>
+            <property name="style" value="1"/>
+        </properties>
+    </rule>
+    
+    <!-- 类内部引用自静态方法必须使用[self::] -->
+    <rule ref="PHPdragon.PHP.SelfMemberReference"/>
+    <!-- 禁止使用$this调用静态变量 -->
+    <rule ref="PHPdragon.PHP.StaticThisUsage"/>
+    <!-- 方法必须声明可见性修饰符 -->
+    <rule ref="PHPdragon.PHP.MethodScope"/>
+    <!-- 方法名称不应与一个下划线前缀表明保护或私有可见性 -->
+    <!--<rule ref="PSR2.Methods.MethodDeclaration"/>-->
+    <!-- 方法必须声明可见性修饰符 -->
+    <rule ref="PHPdragon.PHP.MemberVarScope"/>
+
+    
+    <!-- 空语句检测 -->
+    <rule ref="PHPdragon.CodeAnalysis.EmptyStatement"/>
+    <!-- 检测可简化为一个循环的循环 -->
+    <rule ref="PHPdragon.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+    
+    <!-- 检测在测试表达式中使用函数调用的循环 -->
+    <rule ref="PHPdragon.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+    
+    <!-- 检测if中的条件 -->
+    <rule ref="PHPdragon.CodeAnalysis.UnconditionalIfStatement"/>
+    
+    <!-- 检测类的使用 -->
+    <rule ref="PHPdragon.CodeAnalysis.UnnecessaryFinalModifier"/>
+    
+    <!-- 检测代码混乱 -->
+    <rule ref="PHPdragon.CodeAnalysis.JumbledIncrementer"/>
+    
+    <!-- 检测未使用的函数参数 -->
+    <rule ref="PHPdragon.CodeAnalysis.UnusedFunctionParameter"/>
+    
+    <!-- 检测父类调用 -->
+    <rule ref="PHPdragon.CodeAnalysis.UselessOverridingMethod"/>
+    
+    <!-- 确保在调用函数时不传递变量。 -->
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
+    <!-- 检查调用方法和函数的间隔是否正确。 -->
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+    
+    
+    <!-- 检查函数复杂度（McCabe）功能。 -->
+    <rule ref="PHPdragon.Metrics.CyclomaticComplexity"/>
+    
+    <!-- 检查方法的嵌套级别。 -->
+    <rule ref="PHPdragon.Metrics.NestingLevel"/>
+    
+    <!-- 禁止使用废弃的函数 -->
+    <rule ref="PHPdragon.PHP.DeprecatedFunctions"/>
+    
+    
+    <!-- 4.文档注释 -->
+    <!-- 检测确保文档块遵循基本格式 -->
+    <!--<rule ref="Generic.Commenting.DocComment"/>-->
+    <!-- 警告fixme评论。 -->
+    <!--<rule ref="Generic.Commenting.Fixme"/>-->
+    <!-- 警告TODO注释。 -->
+    <!--<rule ref="Generic.Commenting.Todo"/>-->
+</ruleset>
