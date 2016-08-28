@@ -1,5 +1,6 @@
 <?php
  $phpCodeSnifferConfig = array (
+  'php_path' => '/usr/bin/php',
   'default_standard' => 'PSR2',
   'report_format' => 'summary',
   'show_warnings' => '0',
